@@ -1,0 +1,13 @@
+[Unit]
+Description=checks saam system status
+Requires=network-online.target
+After=saam-comread.service
+
+[Service]
+WorkingDirectory=/root/saam-deployment-app/scripts
+ExecStart=/root/saam-deployment-app/scripts/system-health.sh
+Restart=always
+RestartSec=3600
+
+[Install]
+WantedBy=multi-user.target
