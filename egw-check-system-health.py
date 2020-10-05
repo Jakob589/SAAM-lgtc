@@ -9,16 +9,29 @@ import subprocess
 import zerorpc
 import sys
 import os
- 
+
+#read and close username and pass
+userObj = open('/root/SAAM-lgtc/user','r')
+user = userObj.readline().strip()
+userObj.close
+passwordObj = open('/root/SAAM-lgtc/pass','r').readline().strip()
+password = passwordObj.readline().strip()
+passwordObj.close 
+
+#start mqtt client
 client = mqtt.Client()
-client.username_pw_set("DeviceUser", "b9BpukeK")
+client.username_pw_set(user, password)
 client.tls_set(ca_certs="/opt/cert/ca_certificate.pem",
                 certfile="/opt/cert/client_certificate.pem",
                 keyfile="/opt/cert/client_key.pem")
 client.tls_insecure_set(True)
 client.connect("mqtt.saam-platform.eu", 8883)
 
-loc_id = open('/etc/lgtc/loc-id').readline().strip()
+#read and close loc id
+loc_id_Obj = open('/etc/lgtc/loc-id','r')
+loc_id = loc_id_Obj.readline().strip()
+loc_id_Obj.close
+
 mqtt_topic = "saam/health/" + loc_id
 
 status = {
