@@ -14,7 +14,7 @@ import os
 userObj = open('/root/SAAM-lgtc/user','r')
 user = userObj.readline().strip()
 userObj.close
-passwordObj = open('/root/SAAM-lgtc/pass','r').readline().strip()
+passwordObj = open('/root/SAAM-lgtc/pass','r')
 password = passwordObj.readline().strip()
 passwordObj.close 
 
