@@ -10,7 +10,7 @@ import zerorpc
 import sys
 import os
 
-#read and close username and password
+#read and close username and pass
 userObj = open('/root/mqttUser','r')
 user = userObj.readline().strip()
 userObj.close
