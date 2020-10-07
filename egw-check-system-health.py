@@ -11,10 +11,10 @@ import sys
 import os
 
 #read and close username and pass
-userObj = open('/root/SAAM-lgtc/user','r')
+userObj = open('/root/mqttUser','r')
 user = userObj.readline().strip()
 userObj.close
-passwordObj = open('/root/SAAM-lgtc/pass','r')
+passwordObj = open('/root/mqttPass','r')
 password = passwordObj.readline().strip()
 passwordObj.close 
 
